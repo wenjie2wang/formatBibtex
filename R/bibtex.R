@@ -109,7 +109,7 @@ format_bibtex_entry <-
         if (list_has(xi, "author") && "author" %in% fields) {
             tmp <- lapply(seq_along(xi$author), function(k) {
                 k_list <- unclass(xi$author[[k]])[[1]]
-                k_list$given <- gsub("^([A-Z]).?([A-Z]).?$", "\\1. \\2.",
+                k_list$given <- gsub("^([A-Z])\\.?([A-Z])\\.?$", "\\1. \\2.",
                                      gsub("^([A-Z])$", "\\1.", k_list$given))
                 do.call(utils::person, k_list)
             })
