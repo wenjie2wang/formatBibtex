@@ -1,0 +1,17 @@
+\.Rcheck$
+\.Rproj$
+\.github$
+\.tar\.gz$
+^LICENSE$
+^Makefile$
+^TAGS$
+^\#
+^\.Rhistory$
+^\.Rproj\.user$
+^\.\#
+^\.git$
+^_pkgdown\.yml$
+^docs$
+^misc$
+^working$
+~$

@@ -1,0 +1,30 @@
+working/
+
+*.tar.gz
+*.Rcheck/
+*.o
+*.so
+*.*~
+*~
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Example code in package build process
+*-Ex.R
+
+# RStudio files
+*.Rproj
+.Rproj.user
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# ignore tags
+TAGS
+GTAGS
+GRTAGS
+GPATH
+.clang_complete
