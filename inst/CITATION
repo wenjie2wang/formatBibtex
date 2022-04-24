@@ -4,10 +4,10 @@ citEntry(entry = "Manual",
          Title = "{formatBibtex}: {F}ormat {BibTeX} Entries",
          Author = personList(as.person("Wenjie Wang")),
          Note =	"R package version 0.0.1.9000",
-         Year =	"2021",
+         Year =	"2022",
          Url = "https://github.com/wenjie2wang/formatBibtex",
 
-         textVersion = paste("Wang, W. (2021). formatBibtex:",
+         textVersion = paste("Wang, W. (2022). formatBibtex:",
                              "Format BibTeX Entries.",
                              "R package version 0.0.1.9000",
                              "https://github.com/wenjie2wang/formatBibtex")

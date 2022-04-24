@@ -137,7 +137,7 @@ format_string <-
                 tmp1 <- substring(s_vec, 1, 1 + offset_idx)
                 tmp1 <- ifelse(capIdx, toupper(tmp1), tmp1)
                 if (add_braces && length(colon_force) &&
-                    ! colon_force %in% which(offset_idx > 0)) {
+                    ! any(colon_force %in% which(offset_idx > 0))) {
                     tmp0 <- tmp1[colon_force]
                     tmp1[colon_force] <- ifelse(
                         grepl("[a-zA-Z]", tmp0),
