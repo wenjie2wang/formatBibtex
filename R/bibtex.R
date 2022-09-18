@@ -184,25 +184,32 @@ format_bibtex_file <- function(bibtex_file,
 ## modified from utils:::toBibtex.bibentry
 toBibtex2 <- function(object, ...)
 {
-    format_author <- function(author) paste(sapply(author, function(p)
-    {
-        fnms <- p$family
-        only_given_or_family <- (is.null(fnms) || is.null(p$given)) &&
-            !(identical(fnms, "others") || identical(p$given, "others"))
-        fbrc <- if (length(fnms) > 1L || any(grepl("[[:space:]]", fnms))) {
-                    if (only_given_or_family)
+    format_author <- function(author) {
+        ## remove "others"
+        is_others <- sapply(author, function(a) {
+            identical(a$family, "others") && is.null(a$given)
+        })
+        author <- author[which(! is_others)]
+        paste(sapply(author, function(p)
+        {
+            fnms <- p$family
+            only_given_or_family <- (is.null(fnms) || is.null(p$given))
+            fbrc <- if (only_given_or_family) {
+                        c("{", "}")
+                    } else if (length(fnms) > 1L ||
+                               any(grepl("[[:space:]]", fnms))) {
+                        c("{", "},")
+                    } else {
+                        c("", ",")
+                    }
+            gbrc <- if (only_given_or_family)
                         c("{", "}")
                     else
-                        c("{", "},")
-                } else
-                    c("", ",")
-        gbrc <- if (only_given_or_family)
-                    c("{", "}")
-                else
-                    ""
-        format(p, include = c("family", "given"),
-               braces = list(given = gbrc, family = fbrc))
-    }), collapse = " and ")
+                        ""
+            format(p, include = c("family", "given"),
+                   braces = list(given = gbrc, family = fbrc))
+        }), collapse = " and ")
+    }
     format_bibentry1 <- function(object) {
         object <- unclass(object)[[1L]]
         rval <- paste0("@", tolower(attr(object, "bibtype")),

@@ -1,6 +1,6 @@
 Package: formatBibtex
 Title: Format BibTeX Entries
-Version: 0.0.1.9000
+Version: 0.0.1.9010
 Authors@R: c(
     person(given = "Wenjie", family = "Wang",
            email = "wang@wwenjie.org",
@@ -15,7 +15,6 @@ Suggests:
     bibtex
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/wenjie2wang/formatBibtex
 BugReports: https://github.com/wenjie2wang/formatBibtex/issues
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
