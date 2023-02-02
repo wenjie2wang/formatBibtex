@@ -17,8 +17,8 @@ else
     version=$(grep "Version" DESCRIPTION | awk '{print $NF}')
 
     # update copyright year in the template headers
-    # regexp1="s/Copyright \(C\) 2021(-[0-9]{4})?/Copyright \(C\) 2021-$yr/"
-    # sed -i -E "$regexp1" $cprt_R
+    regexp1="s/Copyright \(C\) 2021(-[0-9]{4})?/Copyright \(C\) 2021-$yr/"
+    sed -i -E "$regexp1" $cprt_R
 
     # update copyright year in all R scripts
     for Rfile in R/*.R
@@ -35,8 +35,8 @@ else
     done
 
     # update date in DESCRIPTION
-    regexp2="s/Date: [0-9]{4}-[0-9]{1,2}-[0-9]{1,2}/Date: $dt/"
-    sed -i -E "$regexp2" DESCRIPTION
+    # regexp2="s/Date: [0-9]{4}-[0-9]{1,2}-[0-9]{1,2}/Date: $dt/"
+    # sed -i -E "$regexp2" DESCRIPTION
 
     # update version and year in citation
     regexp3="s/version ([0-9]+\.*)+/version $version/"
