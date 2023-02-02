@@ -1,14 +1,14 @@
 Package: formatBibtex
-Title: Format BibTeX Entries
-Version: 0.1.0.9000
+Title: Format BibTeX Entries and Files
+Version: 0.1.0
 Authors@R: c(
     person(given = "Wenjie", family = "Wang",
            email = "wang@wwenjie.org",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0363-3180"))
     )
-Description: Provides functions to format BibTeX entries and files.
-Depends: R (>= 3.2.3)
+Description: Format BibTeX entries and files in an opinionated way.
+Depends: R (>= 4.0)
 Imports:
     utils
 Suggests:
@@ -17,4 +17,4 @@ License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://github.com/wenjie2wang/formatBibtex
 BugReports: https://github.com/wenjie2wang/formatBibtex/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
