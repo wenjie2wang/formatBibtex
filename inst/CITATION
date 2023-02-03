@@ -1,14 +1,9 @@
-citHeader("To cite formatBibtex in publications use:")
-
-citEntry(entry = "Manual",
-         Title = "{formatBibtex}: {F}ormat {BibTeX} Entries",
-         Author = personList(as.person("Wenjie Wang")),
-         Note =	"R package version 0.1.0",
-         Year =	"2023",
-         Url = "https://github.com/wenjie2wang/formatBibtex",
-
-         textVersion = paste("Wang, W. (2023). formatBibtex:",
-                             "Format BibTeX Entries.",
-                             "R package version 0.1.0",
-                             "https://github.com/wenjie2wang/formatBibtex")
+bibentry(
+    key = "formatBibtex-package",
+    bibtype = "Manual",
+    title = "{formatBibtex}: {F}ormat {BibTeX} Entries",
+    author = as.person("Wenjie Wang"),
+    year = "2023",
+    url = "https://CRAN.R-project.org/package=formatBibtex",
+    note = "R package version 0.1.0"
 )

@@ -33,7 +33,7 @@ $(tar): $(objects)
 	R CMD build .
 
 $(checkLog): $(tar)
-	R CMD check $(tar)  # no need of --as-cran flag now
+	R CMD check --as-cran $(tar)
 
 # vignettes/%.html: vignettes/%.Rmd
 #	Rscript -e "library(methods); rmarkdown::render('$?')"
