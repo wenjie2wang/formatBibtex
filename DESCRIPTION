@@ -15,6 +15,6 @@ Suggests:
     bibtex
 License: GPL (>= 3)
 Encoding: UTF-8
-URL: https://github.com/wenjie2wang/formatBibtex
+URL: https://wwenjie.org/formatbibtex, https://github.com/wenjie2wang/formatBibtex
 BugReports: https://github.com/wenjie2wang/formatBibtex/issues
 RoxygenNote: 7.2.3
