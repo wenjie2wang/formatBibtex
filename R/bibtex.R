@@ -62,7 +62,7 @@
 ##'     the disk.  The default value is \code{FALSE}.
 ##' @param ... Other arguments passed to \code{format_bibtex_entry}.
 ##'
-##' @return A \code{bibentry} object.
+##' @return A \code{bibtex} object.
 ##'
 ##' @example inst/examples/ex-bibtex.R
 ##'
