@@ -1,6 +1,6 @@
 Package: formatBibtex
 Title: Format BibTeX Entries and Files
-Version: 0.1.0
+Version: 0.1.1.9000
 Authors@R: c(
     person(given = "Wenjie", family = "Wang",
            email = "wang@wwenjie.org",

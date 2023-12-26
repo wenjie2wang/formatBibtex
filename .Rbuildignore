@@ -10,6 +10,7 @@
 ^\.Rproj\.user$
 ^\.\#
 ^\.git$
+^\.gitlab-ci.yml$
 ^_pkgdown\.yml$
 ^docs$
 ^misc$

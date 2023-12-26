@@ -123,7 +123,7 @@ format_bibtex_entry <-
             )
         }
         if (list_has(xi, "pages") && "pages" %in% fields) {
-            xi$pages <- gsub("-+", "--", xi$pages)
+            xi$pages <- gsub("[ ]*-+[ ]*", "--", xi$pages)
         }
         do.call(utils::bibentry, xi)
     })

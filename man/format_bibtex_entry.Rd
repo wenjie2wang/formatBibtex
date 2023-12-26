@@ -47,7 +47,7 @@ entries will be returned without actually (over)writing a BibTeX file to
 the disk.  The default value is \code{FALSE}.}
 }
 \value{
-A \code{bibentry} object.
+A \code{bibtex} object.
 }
 \description{
 This function tries to format the given BibTeX entries so that
