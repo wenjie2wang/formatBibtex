@@ -12,7 +12,5 @@ style.
 
 [cran-url]: https://cran.r-project.org/package=formatBibtex
 [cran-version]: https://www.r-pkg.org/badges/version/formatBibtex
-[tinyverse-dep]: https://tinyverse.netlify.com/badge/formatBibtex
-[tinyverse]: https://www.tinyverse.org/
-[gha-icon]: https://github.com/wenjie2wang/intsurv/workflows/R-CMD-check/badge.svg
-[gha-url]: https://github.com/wenjie2wang/intsurv/actions
+[gha-icon]: https://github.com/wenjie2wang/formatBibtex/workflows/R-CMD-check/badge.svg
+[gha-url]: https://github.com/wenjie2wang/formatBibtex/actions
