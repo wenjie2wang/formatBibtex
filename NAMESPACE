@@ -2,7 +2,9 @@
 
 export(format_bibtex_entry)
 export(format_bibtex_file)
+export(format_options)
 export(format_string)
+importFrom(stats,setNames)
 importFrom(utils,bibentry)
 importFrom(utils,modifyList)
 importFrom(utils,person)

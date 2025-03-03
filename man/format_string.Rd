@@ -12,9 +12,9 @@ format_string(
   strict = TRUE,
   arguments = list(),
   protect_curly_braces = FALSE,
-  lowercase_words = getOption("formatBibtex.lowercase_words"),
-  protected_words = getOption("formatBibtex.protected_words"),
-  punctuation = getOption("formatBibtex.punctuation"),
+  lowercase_words = NULL,
+  protected_words = NULL,
+  punctuation = NULL,
   ...
 )
 }
@@ -41,15 +41,18 @@ replacing specified characters with whitespaces by using
 curly braces represent a block that needs protection.  This argument is
 mainly intended to format BibTeX entries.}
 
-\item{lowercase_words}{Some words that should be almost always be lowercase.}
+\item{lowercase_words}{Some words that should be almost always be lowercase.
+The default values are \code{format_options$get("lowercase_words")}.}
 
 \item{protected_words}{Some words that should be kept in original case and
-should be not be convert to lowercase or uppercase.}
+should be not be convert to lowercase or uppercase.  The default values
+are \code{format_options$get("protected_words")}.}
 
 \item{punctuation}{A character expression that should be considered as
 punctuation and should not be considered as a part of the protected
 words.  The function would remove these punctuation before checking
-whether the words need protecting.}
+whether the words need protecting.  The default values are
+\code{format_options$get("punctuation")}.}
 
 \item{...}{Other arguments that are not used now.}
 }
@@ -82,15 +85,15 @@ foo <- c("iT IS_A_sIMPLe_ExamplE.", "let'S_do soMe_tesTs!")
 format_string(foo, style = "title")
 format_string(foo, style = "sentence")
 
-## protect some words from formatting
-## check out the built-in
-(default_protected_words <- getOption("formatBibtex.protected_words"))
+## default words that would be protected from formatting
+format_options$get("protected_words")
 
-## e.g., protect ABCD from being converted to lowercase
+## e.g., protect ABCD and MCMC from being converted to lowercase
+format_options$append("protected_words", c("ABCD", "MCMC"))
+
 bar <- c("on_the_convergence properties of the ABCD_algorithm",
          "teSt: tHe cluster is Running MCMC!")
-format_string(bar, style = "sentence",
-              protected_words = c(default_protected_words, "ABCD"))
+format_string(bar, style = "sentence")
 
 ## more tricky examples: protected words contain `str4split`
 foo <- c("nineteenth- and twentieth-century writers",

@@ -1,5 +1,6 @@
 ## set default options through functions
 ## reference: knitr::opts_chunk(), etc.
+##' @importFrom stats setNames
 .set_defaults <- function(defaults = list())
 {
     x <- defaults
@@ -17,7 +18,7 @@
         if (drop && length(name) == 1) {
             out[[name]]
         } else {
-            setNames(out[name], name)
+            stats::setNames(out[name], name)
         }
     }
     ## setter
