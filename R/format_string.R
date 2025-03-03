@@ -1,6 +1,6 @@
 ##
 ## formatBibtex: Format BibTeX Entries
-## Copyright (C) 2021-2023 Wenjie Wang <wang@wwenjie.org>
+## Copyright (C) 2021-2025 Wenjie Wang <wang@wwenjie.org>
 ##
 ## This file is part of the R package formatBibtex.
 ##
