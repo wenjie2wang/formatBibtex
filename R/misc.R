@@ -22,6 +22,9 @@ getArgs <- function(arguments, x)
 {
     if (! is.list(arguments))
         stop("The `arguments` has to be a list.", call. = FALSE)
+    if (is.null(arguments[[x]])) {
+        return(list())
+    }
     arguments[x]
 }
 
