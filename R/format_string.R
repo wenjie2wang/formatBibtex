@@ -82,6 +82,17 @@ format_string <-
 {
     ## return NULL immediately
     if (is.null(x)) return(NULL)
+    ## for backward compatibility with version 0.1.0
+    if (is.null(lowercase_words)) {
+        lowercase_words <- getOption("formatBibtex.lowercare_words")
+    }
+    if (is.null(protected_words)) {
+        protected_words <- getOption("formatBibtex.protected_words")
+    }
+    if (is.null(punctuation)) {
+        punctuation <- getOption("formatBibtex.punctuation")
+    }
+    ## version >=0.1.1 uses format_options
     if (is.null(lowercase_words)) {
         lowercase_words <- format_options$get("lowercase_words")
     }
