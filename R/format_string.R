@@ -49,12 +49,15 @@
 ##'     curly braces represent a block that needs protection.  This argument is
 ##'     mainly intended to format BibTeX entries.
 ##' @param lowercase_words Some words that should be almost always be lowercase.
+##'     The default values are \code{format_options$get("lowercase_words")}.
 ##' @param protected_words Some words that should be kept in original case and
-##'     should be not be convert to lowercase or uppercase.
+##'     should be not be convert to lowercase or uppercase.  The default values
+##'     are \code{format_options$get("protected_words")}.
 ##' @param punctuation A character expression that should be considered as
 ##'     punctuation and should not be considered as a part of the protected
 ##'     words.  The function would remove these punctuation before checking
-##'     whether the words need protecting.
+##'     whether the words need protecting.  The default values are
+##'     \code{format_options$get("punctuation")}.
 ##' @param ... Other arguments that are not used now.
 ##'
 ##' @return A character vector of the same length as the input.
@@ -72,13 +75,22 @@ format_string <-
              strict = TRUE,
              arguments = list(),
              protect_curly_braces = FALSE,
-             lowercase_words = getOption("formatBibtex.lowercase_words"),
-             protected_words = getOption("formatBibtex.protected_words"),
-             punctuation = getOption("formatBibtex.punctuation"),
+             lowercase_words = NULL,
+             protected_words = NULL,
+             punctuation = NULL,
              ...)
 {
     ## return NULL immediately
     if (is.null(x)) return(NULL)
+    if (is.null(lowercase_words)) {
+        lowercase_words <- format_options$get("lowercase_words")
+    }
+    if (is.null(protected_words)) {
+        protected_words <- format_options$get("protected_words")
+    }
+    if (is.null(punctuation)) {
+        punctuation <- format_options$get("punctuation")
+    }
     ## preserve possible NA's
     is_any_na <- anyNA(x)
     if (is_any_na) {
@@ -102,7 +114,7 @@ format_string <-
             order_ind <- order_back(len_s)
             ## 1. convert to lowercase first
             ## remove any punctuation when checking
-            s_vec1 <- gsub(pattern = paste0(punctuation, " "),
+            s_vec1 <- gsub(pattern = punctuation,
                            replacement = "", x = s_vec)
             ## words that need protection
             protect_idx <- s_vec1 %in% protected_words |
@@ -116,8 +128,6 @@ format_string <-
                       } else {
                           rep(TRUE, len_s)
                       }
-            ## remove any punctuation when checking
-            s_vec1 <- gsub(pattern = punctuation, replacement = "", x = s_vec)
             ## words that should not be capitalized
             lowercase_idx <- s_vec1 %in% lowercase_words
             capIdx[lowercase_idx] <- FALSE

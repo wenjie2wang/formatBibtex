@@ -5,15 +5,15 @@ foo <- c("iT IS_A_sIMPLe_ExamplE.", "let'S_do soMe_tesTs!")
 format_string(foo, style = "title")
 format_string(foo, style = "sentence")
 
-## protect some words from formatting
-## check out the built-in
-(default_protected_words <- getOption("formatBibtex.protected_words"))
+## default words that would be protected from formatting
+format_options$get("protected_words")
 
-## e.g., protect ABCD from being converted to lowercase
+## e.g., protect ABCD and MCMC from being converted to lowercase
+format_options$append("protected_words", c("ABCD", "MCMC"))
+
 bar <- c("on_the_convergence properties of the ABCD_algorithm",
          "teSt: tHe cluster is Running MCMC!")
-format_string(bar, style = "sentence",
-              protected_words = c(default_protected_words, "ABCD"))
+format_string(bar, style = "sentence")
 
 ## more tricky examples: protected words contain `str4split`
 foo <- c("nineteenth- and twentieth-century writers",

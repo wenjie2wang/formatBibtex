@@ -4,22 +4,18 @@ library(formatBibtex)
 example_bib <- system.file("examples/example.bib", package = "formatBibtex")
 print(readLines(example_bib), quote = FALSE)
 
+## check the default words that need protection by curly braces
+format_options$get("protected_words")
+## append "SMEM" to the list
+format_options$append("protected_words", c("SMEM"))
+
 ## needs the package bibtex
-has_bibtex <- requireNamespace("bibtex", quietly = TRUE)
-
-## example of format_bibtex_entry()
-if (has_bibtex) {
+if (requireNamespace("bibtex", quietly = TRUE)) {
+    ## example of format_bibtex_entry()
     bib <- bibtex::read.bib(example_bib)
-    ## check the default words that need protection by curly braces
-    (default_words <- getOption("formatBibtex.protected_words"))
-    format_bibtex_entry(bib, protected_words = c(default_words, "SMEM"))
-}
-
-## example of format_bibtex_file()
-if (has_bibtex) {
+    format_bibtex_entry(bib)
+    ## example of format_bibtex_file()
     output_file <- tempfile(fileext = ".bib")
-    format_bibtex_file(example_bib,
-                       output_file = output_file,
-                       protected_words = c(default_words, "SMEM"))
+    format_bibtex_file(example_bib, output_file = output_file)
     print(readLines(output_file), quote = FALSE)
 }

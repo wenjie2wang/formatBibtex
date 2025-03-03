@@ -75,7 +75,7 @@ NULL
 format_bibtex_entry <-
     function(entry,
              fields = c("title", "author", "journal", "pages"),
-             protected_words = getOption("formatBibtex.protected_words"),
+             protected_words = NULL,
              ...)
 {
     if (! inherits(entry, "bibentry")) {
@@ -92,9 +92,7 @@ format_bibtex_entry <-
         x
     }
     list_has <- function(x, name) {
-        if (is.null(x[[name]]))
-            FALSE
-        TRUE
+        ! is.null(x[[name]])
     }
     bib_list <- unclass(entry)
     res_list <- lapply(seq_along(bib_list), function(i) {
